@@ -1,23 +1,40 @@
-import logo from "./logo.svg";
 import "./App.css";
-
+import { useState } from "react";
 function App() {
+  const [todos, setTodo] = useState([]);
+  const [input, setInput] = useState("");
+  function addToDo(e) {
+    setTodo([...todos, input]);
+    e.preventDefault();
+    setInput("");
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form action="">
+        <div class="input-container">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder=" "
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <label for="name ">Name</label>
+        </div>
+
+        <div class="input-container">
+          <button type="submit" onClick={addToDo}>
+            Add
+          </button>
+        </div>
+
+        <div class="input-container ">
+          {todos.map((todo) => (
+            <h2>{todo}</h2>
+          ))}
+        </div>
+      </form>
     </div>
   );
 }

@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  --color-primmary: rgb(225, 220, 220);
+  --color-white: rgb(237, 236, 235);
+  --f-larg: 1.5rem;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--color-primmary);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: var(--color-white);
+  font-size: var(--f-larg);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 90vw;
+  height: 90vh;
 }
-
-.App-link {
-  color: #61dafb;
+.input-container {
+  width: 60%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  position: relative;
+  margin-top: 1rem;
 }
+input,
+label {
+  width: 80%;
+  height: 60%;
+  font-size: var(--f-larg);
+  letter-spacing: 2px;
+}
+input {
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid black;
+  color: rgb(61, 65, 63);
+}
+label {
+  position: absolute;
+  pointer-events: none;
+  bottom: 0px;
+  font-size: 2rem;
+}
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  top: -6px;
+}
+input:focus {
+  border-color: blue;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  transition: border-color 500ms ease;
+}
+input:focus + label {
+  color: blue;
+}
+button {
+  padding: 1rem;
+  font-size: 1.2rem;
+  outline: 1px solid rgb(0, 0, 0);
+  border: none;
+  letter-spacing: 2px;
+  box-shadow: 3px 5px 5px black;
+}
+button:hover {
+  outline-color: blue;
+  color: blue;
+  box-shadow: 3px 5px 5px blue;
+  font-weight: bold;
 }
